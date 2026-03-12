@@ -14,10 +14,24 @@ margin-top:30px;
   
 body{
 font-family: Arial, sans-serif;
-background: radial-gradient(circle at top, #0a1f44, #020617);
+background: linear-gradient(-45deg,#020617,#0a1f44,#003cff,#001a4d);
+background-size:400% 400%;
+animation: gradientMove 12s ease infinite;
 color:white;
 text-align:center;
 margin:0;
+}
+
+@keyframes gradientMove{
+0%{
+background-position:0% 50%;
+}
+50%{
+background-position:100% 50%;
+}
+100%{
+background-position:0% 50%;
+}
 }
 
 header{
