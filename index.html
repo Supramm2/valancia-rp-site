@@ -316,4 +316,357 @@
     }
 
     .rules-grid {
-      grid-template-columns: re
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .status-box {
+      text-align: left;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.12);
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      color: #baf7cb;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #3bff8c;
+      box-shadow: 0 0 14px rgba(59,255,140,0.8);
+    }
+
+    .server-info-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .server-info-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+    }
+
+    .fivem-box {
+      text-align: left;
+    }
+
+    .code-box {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #9ed2ff;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .staff-card,
+    .rule-card,
+    .discord-card,
+    .join-card {
+      text-align: left;
+      background: var(--card-strong);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.18);
+      backdrop-filter: blur(14px);
+    }
+
+    .staff-avatar {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, rgba(23,198,255,0.25), rgba(20,85,255,0.45));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 20px rgba(0,170,255,0.2);
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .card-subtitle {
+      color: #88d3ff;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .card-text,
+    .rule-card ul,
+    .discord-card p,
+    .join-card p,
+    .fivem-box p,
+    .status-box p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .rule-card ul {
+      padding-left: 18px;
+      margin-top: 10px;
+    }
+
+    .rule-card li + li {
+      margin-top: 8px;
+    }
+
+    .discord-widget {
+      width: 100%;
+      min-height: 420px;
+      border: none;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+    }
+
+    footer {
+      padding: 34px 18px 42px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      .staff-grid,
+      .hero-stats,
+      .server-grid,
+      .rules-grid,
+      .join-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .staff-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding-top: 56px;
+      }
+
+      .logo {
+        width: 132px;
+      }
+
+      .nav-inner {
+        justify-content: center;
+      }
+
+      .brand {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .glass-card,
+      .staff-card,
+      .rule-card,
+      .discord-card,
+      .join-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="diamonds">
+    <span class="diamond d1"></span>
+    <span class="diamond d2"></span>
+    <span class="diamond d3"></span>
+    <span class="diamond d4"></span>
+    <span class="diamond d5"></span>
+    <span class="diamond d6"></span>
+  </div>
+
+  <div class="site-wrap">
+    <nav class="nav">
+      <div class="nav-inner">
+        <div class="brand">
+          <img src="logo.png" alt="Logo Valancia RP">
+          <span>Valancia RP</span>
+        </div>
+        <div class="nav-links">
+          <a href="#fivem">FiveM</a>
+          <a href="#staff">Staff</a>
+          <a href="#reglement">Règlement</a>
+          <a href="#discord">Discord</a>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      <img src="logo.png" alt="Logo Valancia RP" class="logo">
+      <h1>Valancia RP</h1>
+      <p class="subtitle">
+        Rejoins une expérience RP premium avec un univers soigné, une équipe active, un règlement clair et une communauté prête à t'accueillir.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="https://discord.gg/TON-LIEN" target="_blank">💬 Rejoindre le Discord</a>
+        <a class="btn secondary" href="#fivem">🚓 Voir le serveur FiveM</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="glass-card">
+          <div class="stat-value">24/7</div>
+          <div class="stat-label">Support et suivi du serveur</div>
+        </div>
+        <div class="glass-card">
+          <div class="stat-value">RP</div>
+          <div class="stat-label">Ambiance sérieuse et immersive</div>
+        </div>
+        <div class="glass-card">
+          <div class="stat-value">V</div>
+          <div class="stat-label">Identité visuelle diamant / néon</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="fivem">
+      <h2 class="section-title">🎮 Rejoindre le serveur FiveM</h2>
+      <p class="section-text">
+        Accède rapidement au serveur via FiveM avec la recherche directe ou la commande de connexion.
+      </p>
+      <div class="server-grid">
+        <div class="glass-card status-box">
+          <div class="status-pill"><span class="status-dot"></span> Statut serveur : EN LIGNE</div>
+          <p>Change ce texte selon l'état du serveur. Tu peux mettre EN LIGNE, HORS LIGNE ou OUVERTURE PROCHAINEMENT.</p>
+          <div class="server-info-list">
+            <div class="server-info-item"><strong>Nom du serveur :</strong> Valancia RP</div>
+            <div class="server-info-item"><strong>Recherche FiveM :</strong> Tape <strong>Valancia RP</strong></div>
+            <div class="server-info-item"><strong>Communauté :</strong> Discord officiel + staff actif</div>
+          </div>
+        </div>
+
+        <div class="glass-card fivem-box">
+          <h3 class="card-title">🚓 Connexion rapide</h3>
+          <p>Tu peux mettre ton lien de connexion FiveM juste en dessous.</p>
+          <div class="code-box">connect cfx.re/join/TONCODE</div>
+          <div style="height: 16px;"></div>
+          <a class="btn" href="fivem://connect/cfx.re/join/TONCODE">🎮 Rejoindre via FiveM</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="staff">
+      <h2 class="section-title">👮 Équipe du serveur</h2>
+      <p class="section-text">
+        Présente ici les membres du staff avec leur rôle pour rassurer les joueurs et donner une image sérieuse du serveur.
+      </p>
+      <div class="staff-grid">
+        <div class="staff-card">
+          <div class="staff-avatar">F</div>
+          <div class="card-title">Fondateur</div>
+          <div class="card-subtitle">Nom du fondateur</div>
+          <p class="card-text">Gestion générale du serveur, décisions principales et évolution du projet.</p>
+        </div>
+
+        <div class="staff-card">
+          <div class="staff-avatar">A</div>
+          <div class="card-title">Administrateur</div>
+          <div class="card-subtitle">Nom de l'admin</div>
+          <p class="card-text">Supervision du staff, gestion des sanctions et suivi global de la communauté.</p>
+        </div>
+
+        <div class="staff-card">
+          <div class="staff-avatar">M</div>
+          <div class="card-title">Modérateur</div>
+          <div class="card-subtitle">Nom du modérateur</div>
+          <p class="card-text">Aide aux joueurs, traitement des tickets et maintien d'une bonne ambiance.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reglement">
+      <h2 class="section-title">📜 Règlement stylé</h2>
+      <p class="section-text">
+        Remplace les points ci-dessous par ton vrai règlement serveur. La mise en page est déjà prête.
+      </p>
+      <div class="rules-grid">
+        <div class="rule-card">
+          <div class="card-title">1. Respect général</div>
+          <ul>
+            <li>Le respect envers tous les joueurs et le staff est obligatoire.</li>
+            <li>Les insultes graves, menaces et provocations abusives sont interdites.</li>
+            <li>Tout comportement toxique peut entraîner une sanction.</li>
+          </ul>
+        </div>
+
+        <div class="rule-card">
+          <div class="card-title">2. Roleplay sérieux</div>
+          <ul>
+            <li>Le troll, le no-RP et les scènes incohérentes sont interdits.</li>
+            <li>Le win RP, le force RP et le free kill sont interdits.</li>
+            <li>Chaque scène doit rester logique et immersive.</li>
+          </ul>
+        </div>
+
+        <div class="rule-card">
+          <div class="card-title">3. Métagaming / Powergaming</div>
+          <ul>
+            <li>Le métagaming est strictement interdit.</li>
+            <li>Le powergaming est interdit sous toutes ses formes.</li>
+            <li>Les informations HRP ne doivent jamais être utilisées en RP.</li>
+          </ul>
+        </div>
+
+        <div class="rule-card">
+          <div class="card-title">4. Triche et abus</div>
+          <ul>
+            <li>Les cheats, usebugs et logiciels tiers sont interdits.</li>
+            <li>Toute tentative d'abus du système sera sanctionnée.</li>
+            <li>Le contournement de sanction est interdit.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="discord">
+      <h2 class="section-title">💬 Discord officiel</h2>
+      <p class="section-text">
+        Intègre ton serveur Discord directement sur le site et ajoute aussi un bouton de redirection rapide.
+      </p>
+      <div class="join-grid">
+        <div class="discord-card">
+          <div class="card-title">Widget Discord</div>
+          <p style="margin-bottom: 16px;">Remplace l'adresse du widget par celle de ton vrai serveur Discord.</p>
+          <iframe class="discord-widget" src="https://discord.com/widget?id=TON_ID_DISCORD&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
+
+        <div class="join-card">
+          <div class="card-title">Rejoindre la communauté</div>
+          <p style="margin-bottom: 18px;">Clique ci-dessous pour rejoindre le Discord officiel de Valancia RP.</p>
+          <a class="btn" href="https://discord.gg/TON-LIEN" target="_blank">💬 Rejoindre le Discord</a>
+          <div style="height: 24px;"></div>
+          <div class="card-title">Informations utiles</div>
+          <p>Tu peux aussi mettre ici des annonces, l'heure d'ouverture du serveur, les événements ou le planning staff.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Valancia RP — Site officiel
+    </footer>
+  </div>
+</body>
+</html>
+
