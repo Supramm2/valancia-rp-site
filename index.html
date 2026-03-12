@@ -24,58 +24,80 @@
       scroll-behavior: smooth;
     }
 
-   body{
-margin:0;
-font-family: Arial, sans-serif;
-color:white;
-text-align:center;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(112, 188, 255, 0.22), transparent 16%),
+        radial-gradient(circle at 82% 18%, rgba(62, 142, 255, 0.24), transparent 18%),
+        radial-gradient(circle at 30% 75%, rgba(25, 120, 255, 0.18), transparent 20%),
+        linear-gradient(-45deg, #01040f, #041635, #0a2a74, #02112f);
+      background-size: 220% 220%;
+      animation: bgShift 16s ease infinite;
+      overflow-x: hidden;
+      text-align: center;
+    }
 
-background:
-radial-gradient(circle at 20% 20%, rgba(0,140,255,0.3), transparent 20%),
-radial-gradient(circle at 80% 40%, rgba(0,120,255,0.2), transparent 25%),
-radial-gradient(circle at 50% 80%, rgba(0,90,255,0.2), transparent 30%),
-linear-gradient(-45deg,#020617,#021b4d,#003cff,#02112f);
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-background-size:400% 400%;
-animation: galaxyMove 15s ease infinite;
-}
+    body::before {
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.9) 0 1px, transparent 2px),
+        radial-gradient(circle, rgba(122,208,255,0.85) 0 1.5px, transparent 3px),
+        radial-gradient(circle, rgba(255,255,255,0.6) 0 1px, transparent 2px);
+      background-size: 180px 180px, 240px 240px, 320px 320px;
+      background-position: 0 0, 60px 90px, 100px 40px;
+      opacity: 0.42;
+      animation: starsFloat 28s linear infinite;
+    }
 
-  @keyframes galaxyMove{
-0%{
-background-position:0% 50%;
-}
-50%{
-background-position:100% 50%;
-}
-100%{
-background-position:0% 50%;
-}
+    body::after {
+      background:
+        radial-gradient(circle at 10% 35%, rgba(120, 210, 255, 0.12), transparent 10%),
+        radial-gradient(circle at 88% 65%, rgba(100, 180, 255, 0.12), transparent 10%),
+        radial-gradient(circle at 50% 50%, rgba(0, 160, 255, 0.06), transparent 22%);
+      filter: blur(20px);
+      opacity: 0.8;
+      animation: auroraMove 18s ease-in-out infinite;
+    }
 
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-background-image:
-radial-gradient(white 1px, transparent 1px),
-radial-gradient(#66ccff 1px, transparent 1px),
-radial-gradient(white 1px, transparent 1px);
+    @keyframes starsFloat {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(18px); }
+      100% { transform: translateY(0px); }
+    }
 
-background-size:120px 120px,200px 200px,300px 300px;
+    @keyframes auroraMove {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(0, -10px, 0) scale(1.03); }
+      100% { transform: translate3d(0, 0, 0) scale(1); }
+    }
 
-opacity:0.4;
-pointer-events:none;
+    @keyframes floatDiamond {
+      0% { transform: translateY(0px) rotate(45deg); }
+      50% { transform: translateY(-14px) rotate(45deg); }
+      100% { transform: translateY(0px) rotate(45deg); }
+    }
 
-animation: starsMove 40s linear infinite;
-}
-
-@keyframes starsMove{
-0%{transform:translateY(0px);}
-50%{transform:translateY(30px);}
-100%{transform:translateY(0px);}
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 rgba(0,0,0,0), 0 0 20px rgba(0,170,255,0.35); }
+      50% { box-shadow: 0 0 0 rgba(0,0,0,0), 0 0 34px rgba(0,170,255,0.68); }
+      100% { box-shadow: 0 0 0 rgba(0,0,0,0), 0 0 20px rgba(0,170,255,0.35); }
+    }
 
     .site-wrap {
       position: relative;
@@ -499,7 +521,7 @@ animation: starsMove 40s linear infinite;
         Rejoins une expérience RP premium avec un univers soigné, une équipe active, un règlement clair et une communauté prête à t'accueillir.
       </p>
       <div class="hero-actions">
-        <a class="btn" href="https://discord.gg/valanciarp" target="_blank">💬 Rejoindre le Discord</a>
+        <a class="btn" href="https://discord.gg/TON-LIEN" target="_blank">💬 Rejoindre le Discord</a>
         <a class="btn secondary" href="#fivem">🚓 Voir le serveur FiveM</a>
       </div>
 
@@ -526,8 +548,8 @@ animation: starsMove 40s linear infinite;
       </p>
       <div class="server-grid">
         <div class="glass-card status-box">
-          <div class="status-pill"><span class="status-dot"></span> Statut serveur : OUVERTURE PROCHAINEMENT</div>
-          <p></p>
+          <div class="status-pill"><span class="status-dot"></span> Statut serveur : EN LIGNE</div>
+          <p>Change ce texte selon l'état du serveur. Tu peux mettre EN LIGNE, HORS LIGNE ou OUVERTURE PROCHAINEMENT.</p>
           <div class="server-info-list">
             <div class="server-info-item"><strong>Nom du serveur :</strong> Valancia RP</div>
             <div class="server-info-item"><strong>Recherche FiveM :</strong> Tape <strong>Valancia RP</strong></div>
@@ -538,7 +560,7 @@ animation: starsMove 40s linear infinite;
         <div class="glass-card fivem-box">
           <h3 class="card-title">🚓 Connexion rapide</h3>
           <p>Tu peux mettre ton lien de connexion FiveM juste en dessous.</p>
-          <div class="code-box">connect cfx.re/join/</div>
+          <div class="code-box">connect cfx.re/join/TONCODE</div>
           <div style="height: 16px;"></div>
           <a class="btn" href="fivem://connect/cfx.re/join/TONCODE">🎮 Rejoindre via FiveM</a>
         </div>
@@ -548,39 +570,36 @@ animation: starsMove 40s linear infinite;
     <section class="section" id="staff">
       <h2 class="section-title">👮 Équipe du serveur</h2>
       <p class="section-text">
-       
+        Présente ici les membres du staff avec leur rôle pour rassurer les joueurs et donner une image sérieuse du serveur.
       </p>
       <div class="staff-grid">
         <div class="staff-card">
           <div class="staff-avatar">F</div>
           <div class="card-title">Fondateur</div>
-          <div class="card-subtitle">! Supram , Mini , L2B</div>
+          <div class="card-subtitle">Nom du fondateur</div>
           <p class="card-text">Gestion générale du serveur, décisions principales et évolution du projet.</p>
         </div>
-        
-       <div class="staff-grid">
+
         <div class="staff-card">
-          <div class="staff-avatar">DS</div>
-          <div class="card-title">Développeur Site</div>
-          <div class="card-subtitle">! Supram </div>
-          <p class="card-text">Gestion générale du site internet, développeur officiel du site internet.</p>
-          </div>
-         
-           <div class="staff-grid">
+          <div class="staff-avatar">A</div>
+          <div class="card-title">Administrateur</div>
+          <div class="card-subtitle">Nom de l'admin</div>
+          <p class="card-text">Supervision du staff, gestion des sanctions et suivi global de la communauté.</p>
+        </div>
+
         <div class="staff-card">
-          <div class="staff-avatar">DF</div>
-          <div class="card-title">Développeur FiveM</div>
-          <div class="card-subtitle"> L2B </div>
-          <p class="card-text">Développeur officiel du serveur Valancia RP , assure les mise a jour a venir.</p>
-   </div>
-     </div>
+          <div class="staff-avatar">M</div>
+          <div class="card-title">Modérateur</div>
+          <div class="card-subtitle">Nom du modérateur</div>
+          <p class="card-text">Aide aux joueurs, traitement des tickets et maintien d'une bonne ambiance.</p>
+        </div>
       </div>
     </section>
 
     <section class="section" id="reglement">
-      <h2 class="section-title">📜 Règlement Test</h2>
+      <h2 class="section-title">📜 Règlement stylé</h2>
       <p class="section-text">
-        
+        Remplace les points ci-dessous par ton vrai règlement serveur. La mise en page est déjà prête.
       </p>
       <div class="rules-grid">
         <div class="rule-card">
@@ -624,33 +643,43 @@ animation: starsMove 40s linear infinite;
     <section class="section" id="discord">
       <h2 class="section-title">💬 Discord officiel</h2>
       <p class="section-text">
-     
+        Intègre ton serveur Discord directement sur le site et ajoute aussi un bouton de redirection rapide.
       </p>
       <div class="join-grid">
         <div class="discord-card">
           <div class="card-title">Widget Discord</div>
-          <p style="margin-bottom: 16px;"></p>
-          <iframe class="discord-widget" src="https://discord.com/widget?id=1472693157715120303&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+          <p style="margin-bottom: 16px;">Remplace l'adresse du widget par celle de ton vrai serveur Discord.</p>
+          <iframe class="discord-widget" src="https://discord.com/widget?id=TON_ID_DISCORD&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
         </div>
 
-        <div class="join-card">
-          <div class="card-title">Rejoindre la communauté</div>
-          <p style="margin-bottom: 18px;">Clique ci-dessous pour rejoindre le Discord officiel de Valancia RP.</p>
-          <a class="btn" href="https://discord.gg/valanciarp" target="_blank">💬 Rejoindre le Discord</a>
-          <div style="height:15px"></div>
+    <div class="join-card">
+  <div class="card-title">Rejoindre la communauté</div>
+  <p style="margin-bottom: 18px;">Clique ci-dessous pour rejoindre les différents Discord de Valancia RP.</p>
 
-<a class="btn" href="https://discord.gg/JRBAqWD8T2" target="_blank">
-⚖️ Discord Légal
-</a>
+  <a class="btn" href="https://discord.gg/TON-LIEN" target="_blank">
+  💬 Discord Principal
+  </a>
 
-<div style="height:10px"></div>
+  <div style="height:10px;"></div>
 
-<a class="btn" href="https://discord.gg/QwQt7m7G2j" target="_blank">
-🔫 Discord Illégal
-</a>
-          <div style="height: 24px;"></div>
-          <div class="card-title">Informations utiles</div>
-          <p>Ouverture Prochainement rejoins notre aventure !</p>
+  <a class="btn" href="https://discord.gg/DISCORDLEGAL" target="_blank">
+  ⚖️ Discord Légal
+  </a>
+
+  <div style="height:10px;"></div>
+
+  <a class="btn" href="https://discord.gg/DISCORDILLEGAL" target="_blank">
+  🔫 Discord Illégal
+  </a>
+
+  <div style="height: 24px;"></div>
+
+  <div class="card-title">Informations utiles</div>
+  <p>Tu peux aussi mettre ici des annonces, l'heure d'ouverture du serveur, les événements ou le planning staff.</p>
+</div>    
+
+          <div class="card-title">Informations utiles</div> 
+          <p>Tu peux aussi mettre ici des annonces, l'heure d'ouverture du serveur, les événements ou le planning staff.</p>
         </div>
       </div>
     </section>
@@ -661,4 +690,3 @@ animation: starsMove 40s linear infinite;
   </div>
 </body>
 </html>
-
