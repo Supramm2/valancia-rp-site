@@ -1,115 +1,319 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>Valancia RP</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valancia RP</title>
+  <style>
+    * { box-sizing: border-box; }
 
-<style>
-.logo{
-width:180px;
-border-radius:50%;
-box-shadow:0 0 40px rgba(0,150,255,0.8);
-margin-top:30px;
-}
-  
-body{
-font-family: Arial, sans-serif;
-background: linear-gradient(-45deg,#020617,#0a1f44,#003cff,#001a4d);
-background-size:400% 400%;
-animation: gradientMove 12s ease infinite;
-color:white;
-text-align:center;
-margin:0;
-}
+    :root {
+      --bg-dark: #020617;
+      --bg-mid: #081a44;
+      --bg-light: #0c46d8;
+      --card: rgba(10, 20, 45, 0.72);
+      --card-strong: rgba(18, 33, 72, 0.88);
+      --text: #eef4ff;
+      --muted: #c5d7ff;
+      --line: rgba(130, 190, 255, 0.18);
+      --glow: rgba(58, 154, 255, 0.45);
+      --glow-strong: rgba(0, 170, 255, 0.75);
+    }
 
-@keyframes gradientMove{
-0%{
-background-position:0% 50%;
-}
-50%{
-background-position:100% 50%;
-}
-100%{
-background-position:0% 50%;
-}
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-header{
-background:#1e293b;
-padding:30px;
-font-size:30px;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(112, 188, 255, 0.22), transparent 16%),
+        radial-gradient(circle at 82% 18%, rgba(62, 142, 255, 0.24), transparent 18%),
+        radial-gradient(circle at 30% 75%, rgba(25, 120, 255, 0.18), transparent 20%),
+        linear-gradient(-45deg, #01040f, #041635, #0a2a74, #02112f);
+      background-size: 220% 220%;
+      animation: bgShift 16s ease infinite;
+      overflow-x: hidden;
+      text-align: center;
+    }
 
-button{
-background: linear-gradient(90deg,#00bfff,#004cff);
-color:white;
-border:none;
-padding:15px 30px;
-font-size:18px;
-border-radius:12px;
-cursor:pointer;
-box-shadow:0 0 20px rgba(0,150,255,0.7);
-transition:0.2s;
-}
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-button:hover{
-transform:scale(1.05);
-box-shadow:0 0 30px rgba(0,150,255,1);
-}
+    body::before {
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.9) 0 1px, transparent 2px),
+        radial-gradient(circle, rgba(122,208,255,0.85) 0 1.5px, transparent 3px),
+        radial-gradient(circle, rgba(255,255,255,0.6) 0 1px, transparent 2px);
+      background-size: 180px 180px, 240px 240px, 320px 320px;
+      background-position: 0 0, 60px 90px, 100px 40px;
+      opacity: 0.42;
+      animation: starsFloat 28s linear infinite;
+    }
 
-section{
-padding:40px;
-}
+    body::after {
+      background:
+        radial-gradient(circle at 10% 35%, rgba(120, 210, 255, 0.12), transparent 10%),
+        radial-gradient(circle at 88% 65%, rgba(100, 180, 255, 0.12), transparent 10%),
+        radial-gradient(circle at 50% 50%, rgba(0, 160, 255, 0.06), transparent 22%);
+      filter: blur(20px);
+      opacity: 0.8;
+      animation: auroraMove 18s ease-in-out infinite;
+    }
 
-.rules{
-background:#1e293b;
-margin:20px;
-padding:20px;
-border-radius:10px;
-}
-</style>
-</head>
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-<body>
+    @keyframes starsFloat {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(18px); }
+      100% { transform: translateY(0px); }
+    }
 
-<header>
+    @keyframes auroraMove {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(0, -10px, 0) scale(1.03); }
+      100% { transform: translate3d(0, 0, 0) scale(1); }
+    }
 
-<img src="logo.png" class="logo">
+    @keyframes floatDiamond {
+      0% { transform: translateY(0px) rotate(45deg); }
+      50% { transform: translateY(-14px) rotate(45deg); }
+      100% { transform: translateY(0px) rotate(45deg); }
+    }
 
-<h1>Valancia RP</h1>
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 rgba(0,0,0,0), 0 0 20px rgba(0,170,255,0.35); }
+      50% { box-shadow: 0 0 0 rgba(0,0,0,0), 0 0 34px rgba(0,170,255,0.68); }
+      100% { box-shadow: 0 0 0 rgba(0,0,0,0), 0 0 20px rgba(0,170,255,0.35); }
+    }
 
-</header>
+    .site-wrap {
+      position: relative;
+      z-index: 1;
+    }
 
-<section>
+    .diamonds {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-<h2>Rejoindre le Discord</h2>
+    .diamond {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(80,185,255,0.75), rgba(0,102,255,0.25));
+      transform: rotate(45deg);
+      border: 1px solid rgba(180, 225, 255, 0.55);
+      box-shadow: 0 0 18px rgba(105, 195, 255, 0.35);
+      opacity: 0.55;
+      animation: floatDiamond 7s ease-in-out infinite;
+    }
 
-<a href="https://discord.gg/valanciarp">
-<button>Rejoindre le Discord</button>
-</a>
+    .d1 { top: 12%; left: 8%; animation-delay: 0s; }
+    .d2 { top: 22%; right: 12%; width: 26px; height: 26px; animation-delay: 1s; }
+    .d3 { top: 48%; left: 6%; width: 14px; height: 14px; animation-delay: 2s; }
+    .d4 { top: 64%; right: 10%; width: 20px; height: 20px; animation-delay: 1.5s; }
+    .d5 { top: 82%; left: 14%; width: 24px; height: 24px; animation-delay: 0.8s; }
+    .d6 { top: 78%; right: 22%; width: 16px; height: 16px; animation-delay: 2.8s; }
 
-</section>
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(2, 8, 23, 0.62);
+      border-bottom: 1px solid rgba(130, 190, 255, 0.14);
+    }
 
-<section>
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
 
-<h2>Règlement du serveur</h2>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      font-size: 1.05rem;
+    }
 
-<div class="rules">
-<h3>1. Respect</h3>
-<p>Le respect envers tous les joueurs est obligatoire.</p>
-</div>
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      box-shadow: 0 0 18px rgba(0,170,255,0.45);
+    }
 
-<div class="rules">
-<h3>2. Roleplay</h3>
-<p>Le troll, le no RP et le win RP sont interdits.</p>
-</div>
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-<div class="rules">
-<h3>3. Cheats</h3>
-<p>Les cheats et usebugs sont strictement interdits.</p>
-</div>
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 12px;
+      transition: 0.2s ease;
+    }
 
-</section>
+    .nav-links a:hover {
+      color: white;
+      background: rgba(255,255,255,0.06);
+    }
 
-</body>
-</html>
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+      border: 1px solid rgba(142, 212, 255, 0.18);
+      background: linear-gradient(90deg, #0fc6ff, #1455ff);
+      box-shadow: 0 0 22px rgba(0, 170, 255, 0.35);
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 0 28px rgba(0, 170, 255, 0.6);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.05);
+      color: white;
+      box-shadow: none;
+    }
+
+    header {
+      padding: 78px 18px 44px;
+    }
+
+    .logo {
+      width: 170px;
+      height: auto;
+      display: block;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      box-shadow: 0 0 40px var(--glow-strong);
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 4.7rem);
+      margin: 0 0 10px;
+      text-shadow: 0 0 18px rgba(0, 130, 255, 0.22);
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .hero-stats {
+      max-width: 1100px;
+      margin: 34px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .glass-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.18);
+    }
+
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 18px 34px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin: 0 0 10px;
+      text-shadow: 0 0 12px rgba(0, 130, 255, 0.18);
+    }
+
+    .section-text {
+      max-width: 760px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .server-grid,
+    .staff-grid,
+    .rules-grid,
+    .join-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .server-grid,
+    .join-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .staff-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .rules-grid {
+      grid-template-columns: re
