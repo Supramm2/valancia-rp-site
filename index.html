@@ -5,9 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+.logo{
+width:180px;
+border-radius:50%;
+box-shadow:0 0 40px rgba(0,150,255,0.8);
+margin-top:30px;
+}
+  
 body{
-font-family: Arial;
-background:#0f172a;
+font-family: Arial, sans-serif;
+background: radial-gradient(circle at top, #0a1f44, #020617);
 color:white;
 text-align:center;
 margin:0;
@@ -20,13 +27,20 @@ font-size:30px;
 }
 
 button{
-background:#5865F2;
+background: linear-gradient(90deg,#00bfff,#004cff);
 color:white;
 border:none;
-padding:15px 25px;
+padding:15px 30px;
 font-size:18px;
-border-radius:10px;
+border-radius:12px;
 cursor:pointer;
+box-shadow:0 0 20px rgba(0,150,255,0.7);
+transition:0.2s;
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 0 30px rgba(0,150,255,1);
 }
 
 section{
@@ -45,7 +59,11 @@ border-radius:10px;
 <body>
 
 <header>
-Valancia RP
+
+<img src="logo.png" class="logo">
+
+<h1>Valancia RP</h1>
+
 </header>
 
 <section>
